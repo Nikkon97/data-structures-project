@@ -1,5 +1,7 @@
 """Здесь надо написать тесты с использованием unittest для модуля stack."""
-from src.stack import Stack
+import pytest as pytest
+
+from src.stack import Stack, Node
 
 
 def test_push():
@@ -11,7 +13,9 @@ def test_push():
     assert stack.top.next_node is None
     stack.push('test_data_1')
     assert isinstance(stack.top.next_node, Node)
-    assert stack,top.next_node is node
+    assert stack.top.data == 'test_data_1'
+    assert stack.top.next_node is node
+
 
 def test_pop():
     stack = Stack()
@@ -23,6 +27,3 @@ def test_pop():
     assert stack.pop() is node_1
     with pytest.raises(AttributeError):
         stack.pop()
-
-
-
